@@ -30,6 +30,13 @@ public class StringUtils {
     }
 
     public static Integer getNumberOfSubStrings(String input){
-        return null;
+        int count = 0;
+        for (int i = 0; i < input.length(); i++){
+            for (int j = 0; j < input.length(); j++) {
+                input.substring(j);
+                count++;
+            }
+        }
+        return count;
     }
 }
