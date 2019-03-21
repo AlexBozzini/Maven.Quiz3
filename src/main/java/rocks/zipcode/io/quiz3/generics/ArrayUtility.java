@@ -55,10 +55,15 @@ public class ArrayUtility<SomeType> {
     }
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
-        List<SomeType> list = new ArrayList<>(Arrays.asList(array));
-        List<SomeType> filteredList = new ArrayList<>();
-        for (SomeType T : list){
+        List<SomeType> filtered = new ArrayList<>();
+
+        for (SomeType type : array){
+            if (predicate.apply(type)){
+                filtered.add(type);
+            }
         }
-        return null;
+
+        SomeType[] newArray = Arrays.copyOf(array, filtered.size());
+        return filtered.toArray(newArray);
     }
 }
